@@ -21,3 +21,4 @@ static3==0.7.0
 traitlets==4.3.3
 wcwidth==0.1.9
 whitenoise==5.0.1
+django-widget-tweaks==1.4.8
