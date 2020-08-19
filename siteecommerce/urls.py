@@ -1,10 +1,9 @@
 from django.contrib import admin
+from django.conf import settings
 from django.urls import path, include
-from core import views
+#from core import views
 
 urlpatterns = [
+    path('', include('core.urls')),
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('contato/', views.contact, name='contact'),
-    path('catalogo/', include('catalog.urls', namespace='catalog')),
 ]

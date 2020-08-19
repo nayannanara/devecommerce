@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'catalog',
+    'accounts',
     'widget_tweaks',
 ]
 
@@ -98,7 +99,31 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'logout'
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.ModelBackend',
+)
+
+# Messages
+from django.contrib.messages import constants as messages_constants
+MESSAGE_TAGS = {
+    messages_constants.DEBUG: 'debug',
+    messages_constants.INFO: 'info',
+    messages_constants.SUCCESS: 'success',
+    messages_constants.WARNING: 'warning',
+    messages_constants.ERROR: 'danger',
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
