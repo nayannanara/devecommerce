@@ -39,10 +39,10 @@ class ContactView(object):
         return render(request, 'contact.html', context)
         
 
-contact = ContactView()
+contact2 = ContactView()
 
 
-def contact2(request):
+def contact(request):
     success = False
     form = ContactForm(request.POST or None)
     if form.is_valid():
@@ -54,4 +54,4 @@ def contact2(request):
         'form': form,
         'success': success
     }
-    return render(request, '_contact.html', context)  
+    return render(request, '_contact.html', context)

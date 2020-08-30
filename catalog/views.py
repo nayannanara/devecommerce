@@ -37,7 +37,7 @@ category = CategoryListView.as_view()
 def product(request, slug):
     product = Product.objects.get(slug=slug)
     context = {
-        'current_product': product
+        'product': product
     }
     return render(request, 'catalog/product.html', context)
 
