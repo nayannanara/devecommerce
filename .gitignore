@@ -1,6 +1,6 @@
-*.sqlite3
+db_projetoecommerce.sqlite3
 .idea
 *.pyc
 .DS_Store
 venv
-*.env
+.env
